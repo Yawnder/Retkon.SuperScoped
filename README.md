@@ -1,5 +1,7 @@
 # Retkon SuperScoped
 
+Build Status: [![Test](https://github.com/Yawnder/Retkon.SuperScoped/actions/workflows/build-test.yml/badge.svg)](https://github.com/Yawnder/Retkon.SuperScoped/actions/workflows/build-test.yml)
+
 ## Problem to solve
 I often end up having a set of services that have to run in a context, for example, for a specific Tenant. I end up creating an `ITenantContext` and injecting this into everything that needs it, and setting the value for the tenant as early as I can near the Entrypoint of the process.
 
