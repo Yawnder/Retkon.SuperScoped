@@ -5,6 +5,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>Nullable</WarningsAsErrors>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Title>Retkon's SuperScope</Title>
+    <Description>A facilitator to frame scope usages in Microsoft's DI.</Description>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Retkon,Scope,SuperScope,Dependency Injection,DI</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Authors>Yawnder</Authors>
+    <Company>Retkon</Company>
+    <Version>1.0.0-rc</Version>
+    <RepositoryUrl>https://github.com/Yawnder/Retkon.SuperScoped</RepositoryUrl>
+
   </PropertyGroup>
 
   <ItemGroup>
