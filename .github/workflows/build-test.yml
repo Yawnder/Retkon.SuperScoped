@@ -34,7 +34,7 @@ jobs:
       run: dotnet build src/Retkon.SuperScoped.sln --no-restore
 
     - name: Test
-      run: dotnet test src/Retkon.SuperScoped.sln -c Release --no-build --verbosity normal
+      run: dotnet test src/Retkon.SuperScoped.sln --no-build --verbosity normal
 
     - name: Generate NuGet package
       if: ${{ success() }}
