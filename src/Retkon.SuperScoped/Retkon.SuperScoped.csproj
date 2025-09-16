@@ -16,7 +16,7 @@
     <Company>Retkon</Company>
     <Version>1.0.0-rc</Version>
     <RepositoryUrl>https://github.com/Yawnder/Retkon.SuperScoped</RepositoryUrl>
-    <PackageReadmeFile>../../README.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
     
   </PropertyGroup>
@@ -25,4 +25,8 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
+  
 </Project>
