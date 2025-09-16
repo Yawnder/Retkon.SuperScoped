@@ -47,5 +47,5 @@ jobs:
       if: ${{ success() && github.ref == 'refs/heads/main' }}
       run: |
         foreach ($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
-            dotnet nuget push $file --api-key "%NUGET_APIKEY%" --source https://api.nuget.org/v3/index.json --skip-duplicate
+            dotnet nuget push $file --api-key "$NUGET_APIKEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
         }
