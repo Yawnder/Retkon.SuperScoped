@@ -1,8 +1,10 @@
-name: Build & Test
+name: Build, Test & Release
 
 on:
   push:
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
 env:
   NuGetDirectory: ${{ github.workspace}}/nuget
@@ -33,3 +35,14 @@ jobs:
 
     - name: Test
       run: dotnet test src/Retkon.SuperScoped.sln --no-build --verbosity normal
+
+    - name: Generate NuGet package
+      if: ${{ success() }}
+      run: dotnet pack src/Retkon.SuperScoped.sln -c Release --output ${{ env.NuGetDirectory }}
+      
+    - name: Publish NuGet package
+      if: ${{ success() && github.ref == 'refs/heads/main' }}
+      run: |
+        foreach ($file in (Get-ChildItem "${{ env.NuGetDirectory }}" -Recurse -Include *.nupkg)) {
+            dotnet nuget push $file --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        }
