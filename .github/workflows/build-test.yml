@@ -28,17 +28,17 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore src/Retkon.SuperScoped.sln
 
     - name: Build Solution
-      run: dotnet build --no-restore
+      run: dotnet build src/Retkon.SuperScoped.sln --no-restore
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test -c Release --no-build --verbosity normal
 
     - name: Generate NuGet package
       if: ${{ success() }}
-      run: dotnet pack --configuration Release --output ${{ env.NuGetDirectory }}
+      run: dotnet pack src/Retkon.SuperScoped.sln -c Release --output ${{ env.NuGetDirectory }}
       
     - name: Publish NuGet package
       if: ${{ success() && github.ref == 'refs/heads/main' }}
